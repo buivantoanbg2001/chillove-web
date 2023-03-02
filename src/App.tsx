@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import AppRouting from 'components/routes/AppRouting';
+import { history, HistoryRouter } from 'components/routes/HistoryRouter';
+import 'styles/main.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello</p>
-      </header>
-    </div>
+    <HistoryRouter history={history}>
+      <Suspense fallback={null}>
+        <AppRouting />
+      </Suspense>
+    </HistoryRouter>
   );
-}
+};
 
 export default App;
